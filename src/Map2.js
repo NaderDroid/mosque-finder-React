@@ -6,11 +6,6 @@ import {Map, TileLayer, Marker, Popup} from 'react-leaflet'
 import {getAllMosques, getByUserId} from "./api";
 
 
-const style = {
-    width: "100%",
-    height: "576px"
-};
-
 class Map2 extends React.Component {
     state = {
         mosques: [],
@@ -50,7 +45,7 @@ class Map2 extends React.Component {
                         </Alert>
                     </div>
                 }
-                <Map style={style} center={[this.props.lat, this.props.lng]}
+                <Map style={this.props.width} center={[this.props.lat, this.props.lng]}
                      zoom={this.props.zoom}
                 >
                     <TileLayer
@@ -80,7 +75,8 @@ class Map2 extends React.Component {
                                         key={index}
                                         icon={theirCont}>
                                     <Popup>
-                                        Mosque: {mosque.ownerName} <br/> Said '{mosque.desc}'
+                                        Mosque Name: {mosque.name} <br/>
+                                        Added by: {mosque.ownerName} <br/> Said '{mosque.desc}'
                                         <br/><a href={`http://maps.google.com.sa/maps?q=${mosque.coords.x},${mosque.coords.y}`} target={'_blank'}>Google direction</a>
 
                                     </Popup>

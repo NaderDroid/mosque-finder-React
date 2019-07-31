@@ -37,6 +37,7 @@ class UserPage extends Component {
                     mosques: res.data.mosques
                 })
             })
+            .catch(err => console.log(err))
     }
     render() {
         return (

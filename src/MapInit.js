@@ -4,6 +4,16 @@ import {getLocation, validateForm, handleForm} from "./api";
 import Map2 from './Map2';
 import FormCard from "./FormCard";
 import axios from 'axios'
+import {Alert} from "reactstrap";
+
+const style1 = {
+    width: "100%",
+    height: "678px"
+};
+const style2 = {
+    width: "100%",
+    height: "350px",
+};
 
 class MapInit extends React.Component {
     state = {
@@ -139,16 +149,34 @@ class MapInit extends React.Component {
     render() {
         return (
             <div>
-                <Map2 lat={this.state.info.coords.lat}
-                      lng={this.state.info.coords.lng}
-                      zoom={this.state.zoom}
-                      user={this.state.user}
-                      appr={this.state.approximate}
-                />
                 {this.state.user && this.state.approximate ?
-                    <h3>To ensure accuracy, We need Location services before you add a mosque</h3>
+                    <div>
+                        <Alert color="secondary" isOpen={this.state.visible} toggle={this.onDismiss} fade={false}>
+                            To ensure accuracy, you need location services to add a mosque
+                        </Alert>
+                    </div>
                     :
                     ''
+                }
+                {this.state.user && !this.state.approximate ?
+                    <center>
+                        <Map2 style={{marginLeft: '600px'}} lat={this.state.info.coords.lat}
+                              lng={this.state.info.coords.lng}
+                              zoom={this.state.zoom}
+                              user={this.state.user}
+                              appr={this.state.approximate}
+                              width={style2}
+                        />
+                    </center>
+
+                    :
+                    <Map2 lat={this.state.info.coords.lat}
+                          lng={this.state.info.coords.lng}
+                          zoom={this.state.zoom}
+                          user={this.state.user}
+                          appr={this.state.approximate}
+                          width={style1}
+                    />
                 }
                 {this.state.user && !this.state.approximate && !this.state.isSent ?
                     <FormCard
@@ -163,7 +191,15 @@ class MapInit extends React.Component {
                     />
                     : ''
                 }
-
+                {this.state.isSent ?
+                    <div className="text-center">
+                        <Alert color="success" isOpen={this.state.visible} toggle={this.onDismiss} fade={false}>
+                            Mosque has been added successfully. We appreciate your contribution
+                        </Alert>
+                    </div>
+                    :
+                    ''
+                }
             </div>
         );
     }
