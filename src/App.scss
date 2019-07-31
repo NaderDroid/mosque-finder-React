@@ -1,0 +1,112 @@
+$success: #c7f282;
+$warning: #f1e681;
+$error: #f08181;
+$charcoal: #ccc;
+html {
+  background: url(images/bgmsq.jpg) no-repeat center center fixed ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ opacity: 0.85;
+
+}
+
+.flash-success,
+.flash-warning,
+.flash-error {
+  border: 1px solid $charcoal;
+  display: block;
+  left: 25%;
+  padding: 30px;
+  position: fixed;
+  text-align: center;
+  top: 15%;
+  width: 50%;
+  z-index: 1;
+}
+
+.flash-success {
+  background-color: $success;
+}
+
+.flash-warning {
+  background-color: $warning;
+}
+
+.flash-error {
+  background-color: $error;
+}
+
+.auth-form {
+  width: 600px;
+  max-height: 600px;
+  padding:30px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba($color: white, $alpha: 0.6);
+  margin: auto;
+  text-align: center;
+  font-family: 'Noto Serif', serif;
+  color: #000000;
+  border-radius: 24px;
+
+  h3{
+    background: none;
+    text-align: center;
+    color: #000000;
+
+  }
+  input {
+    display: block;
+
+    text-decoration: none;
+    background: none;
+    text-align: center;
+    border: 1px solid grey;
+    padding: 14px 40px;
+    outline: none;
+    color: #000000;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    margin: auto;
+  }
+
+
+  button {
+    text-decoration: none;
+    background: none;
+    text-align: center;
+    border: 1px solid grey;
+    padding: 14px 40px;
+    outline: none;
+    color: #000000;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    margin: 10px;
+  }
+  button:hover{
+    background: rgba(122, 122, 122, 0.65);
+  }
+}
+
+.map {
+  margin: 8px -18px 0px 0px;
+  float: right;
+  height: 500px;
+  width: 300px;
+}
+
+.card {
+  color : #3774a5 ;
+  width: 500px;
+  top: 10px;
+  left: 10px;
+}
+.submit {
+  margin: 5px;
+}
